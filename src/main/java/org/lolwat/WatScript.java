@@ -77,6 +77,7 @@ public class WatScript extends AbstractScript implements ExperienceListener, Cha
         put("peso", "https://discord.com/api/webhooks/1295107274628399114/RIXif-CYVpuZ2lJxhauRwQXfybL3A792rVdtJdmIA5cdxQeAETXjGh8zu3aGfrl4ClAb");
         put("svensson", "https://discord.com/api/webhooks/1302790039360634890/jkZrdFnH8-A4SFneDH_Ccs3imXIYHuGIkUomCgm9jxf_5_ZEzHsVGTMJJLgm3XyW60cb");
         put("ronscapes", "https://discord.com/api/webhooks/1332117032778600531/ZeK-sVHrXUAtynvoXVQpWZlaqSPYvBjZ8PYaGBjqeN_gKRtal0ow7hu27yxfM4UVSb2H");
+        put("alexkk", "https://discord.com/api/webhooks/1346607654872682526/detQ_GmMq4FEYIV8Uaq_C_yhz6WJFgbX1YThTY4rx3CWVDGlTVqjS8fw_ZLE2dvZhwOj");
     }};
 
     private final CustomPaint paint = new CustomPaint(new Paint(),
@@ -346,8 +347,7 @@ public class WatScript extends AbstractScript implements ExperienceListener, Cha
         if(Client.getForumUser() == null)
             return;
 
-        boolean enableGpt = (Client.getForumUser().getUsername().equals("peso") || Client.getForumUser().getUsername().equals("lolwat"));
-        if (enableGpt && TaskManager.getInstance().getCurrentTask() instanceof MainCombatTask && !m.getUsername().isEmpty() && !m.getUsername().equals(Players.getLocal().getName())) {
+        if (TaskManager.getInstance().getCurrentTask() instanceof MainCombatTask && !m.getUsername().isEmpty() && !m.getUsername().equals(Players.getLocal().getName())) {
             if (Players.all(x -> !x.equals(Players.getLocal())).size() == 1 && !GPT_WAITING_FOR_REPLY) {
                 setWaitingForReply(true);
                 new Thread(() -> {
