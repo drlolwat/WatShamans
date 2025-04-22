@@ -1,4 +1,4 @@
-package org.lolwat.misc.types.combat;
+package org.lolwat.misc.combat;
 
 public enum DefensiveItemType {
     HELMET,

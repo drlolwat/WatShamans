@@ -1,4 +1,4 @@
-package org.lolwat.tasks.shamans;
+package org.lolwat.tasks.combat;
 
 import org.dreambot.api.methods.combat.Combat;
 import org.dreambot.api.methods.combat.CombatStyle;
