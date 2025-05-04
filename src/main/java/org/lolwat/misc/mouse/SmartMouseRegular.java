@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 import java.awt.Canvas;
 
-public class SmartMouseMultiDir implements MouseAlgorithm {
+public class SmartMouseRegular implements MouseAlgorithm {
     Canvas canvas = Client.getCanvas();
     int screenWidth = canvas.getWidth();
     int screenHeight = canvas.getHeight();
@@ -61,7 +61,7 @@ public class SmartMouseMultiDir implements MouseAlgorithm {
     );
 
     /**
-     * Expected structure in mousedata.json:
+     * Expected structure in combat.json:
      *
      * {
      *   "12": {
@@ -83,7 +83,7 @@ public class SmartMouseMultiDir implements MouseAlgorithm {
     private final Random random = new Random();
     private boolean lastActionWasRightClick = false;
 
-    public SmartMouseMultiDir() {
+    public SmartMouseRegular() {
         loadMouseData();
     }
 
@@ -125,7 +125,7 @@ public class SmartMouseMultiDir implements MouseAlgorithm {
         }
 
         double distance = distance(current, target);
-        Logger.log("handleMovement => Current: " + current + ", Target: " + target + ", Distance: " + distance);
+        //Logger.log("handleMovement => Current: " + current + ", Target: " + target + ", Distance: " + distance);
 
         // Compute angle in degrees from current -> target
         double dx = target.getX() - current.getX();
@@ -425,7 +425,7 @@ public class SmartMouseMultiDir implements MouseAlgorithm {
     }
 
     /**
-     * Load mouse data from resource: mousedata.json
+     * Load mouse data from resource: combat.json
      * We assume it has the structure:
      * {
      *   "12": {
@@ -439,7 +439,7 @@ public class SmartMouseMultiDir implements MouseAlgorithm {
      */
     private void loadMouseData() {
         Gson gson = new Gson();
-        try (InputStream is = getClass().getResourceAsStream("/mousedata.json")) {
+        try (InputStream is = getClass().getResourceAsStream("/regular.json")) {
             if (is == null) {
                 Logger.log("Error: mousedata");
             } else {
